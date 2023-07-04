@@ -1,0 +1,13 @@
+qdrant-client
+Flask
+Markupsafe
+PyPDF2
+docx2pdf
+langchain
+sentence-transformers
+re
+os
+shutil
+glob
+time
+python-certifi-win32

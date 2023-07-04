@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context:
+    image: qdrant/qdrant
+    ports:
+    - 6333:6333
+    volumes:
+    - ./vol:/qdrant/storage
