@@ -13,4 +13,4 @@
   - source env_resume/bin/activate
   - cd qdrant
   - python collection.py
-  - python -m flask --app app.py run/ python -m flask run
+  - python -m flask --app app.py run OR python -m flask run
