@@ -1,172 +1,144 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Upload File</title>
+    <title>Resume Filtration App</title>
     <style>
-      .header {
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #1abc9c;
+        color: #f2f2f2;
+        line-height: 1.6;
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: auto;
+        color: #14452f;
+      }
+      .card {
+        border-radius: 15px;
+        width: 45%;
+        height: 20vh;
+        border: 2px solid #4e4d4d;
+        padding: 20px;
+        margin: 10px 3px;
         text-align: center;
       }
-      .main {
-        width: 40%;
+      .header {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .form-label {
+        font-size: 16px;
       }
       .upload-form {
-        display: inline-block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
+        margin-top: 10px;
       }
       .inputBtn {
-        background-color: rgb(7, 174, 5);
+        background-color: rgb(24, 57, 58);
         color: white;
-        font-family: sans-serif;
+        font-family: Arial, sans-serif;
         border: none;
         border-radius: 7px;
         cursor: pointer;
-        margin-top: 1rem;
-        align-items: center;
-        width: 100px;
-        margin-left: auto;
-        padding: 6px;
+        padding: 8px 20px;
+      }
+      .delete-btn {
+        background-color: red;
+        color: white;
+        font-family: Arial, sans-serif;
+        border: none;
+        border-radius: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 16px 40px;
+        margin: -15px auto 0px auto;
+      }
+      .file-label {
+        display: block;
+        margin-bottom: 5px;
       }
     </style>
   </head>
-  <body
-    style="
-      justify-items: center;
-      display: block;
-      text-align: center;
-      background-image: linear-gradient(90deg, #edffe9, #dbfcfb, #cdfdff);
-    "
-  >
+  <body>
     <div>
-      <h1>RESUME FILTRATION APP</h1>
+      <h1 style="font-size: 50px">RESUME FILTRATION APP</h1>
     </div>
-    <br />
-    <div
-      style="
-        display: flex;
-        margin-top: 0%;
-        justify-content: space-around;
-        align-items: center;
-        padding: 1em;
-      "
-    >
-      <div
-        style="
-          border-radius: 15px;
-          width: 41%;
-          height: 20vh;
-          border: 2px solid #4e4d4d;
-          padding: 10px;
-          margin-left: -0.9em;
-          text-align: center;
-          justify-content: center;
-          background-color: rgba(248, 146, 109, 0.806);
-        "
-      >
+    <div class="container">
+      <div class="card" style="background-color: #e0e0e0">
         <h1 class="header">UPLOAD RESUME</h1>
         <form
           class="upload-form"
-          action=" {{ url_for('upload')}}"
+          action="{{ url_for('upload')}}"
           method="post"
           enctype="multipart/form-data"
         >
-          <input type="file" name="file" id="upload" multiple />
-          <button type="submit" class="inputBtn" value="Upload">UPLOAD</button>
+          <label class="file-label" for="upload">Select Resume File:</label>
+          <div style="margin-top: 12px">
+            <input type="file" name="file" id="upload" multiple />
+            <button type="submit" class="inputBtn" style="margin-left: -60px;">UPLOAD</button>
+          </div>
         </form>
       </div>
-      <div
-        style="
-          border-radius: 15px;
-          width: 41%;
-          height: 20vh;
-          border: 2px solid #4e4d4d;
-          padding: 10px;
-          margin-left: -0.9em;
-          text-align: center;
-          justify-content: center;
-          background-color: rgba(248, 146, 109, 0.806);
-        "
-      >
-        <h1 class="header">UPLOAD ALL RESUME TO THE DATABASE</h1>
+      <div class="card" style="background-color: #e0e0e0">
+        <h1 class="header">UPLOAD ALL RESUMES TO THE DATABASE</h1>
         <form
           class="upload-form"
           action="{{url_for('dbupload')}}"
           method="post"
         >
-          <button type="submit" class="upload_form" value="Upload">
-            UPLOAD
-          </button>
+          <button type="submit" class="inputBtn">UPLOAD</button>
         </form>
       </div>
-    </div>
-    <div
-      style="display: flex; justify-content: space-around; align-items: center"
-    >
-      <div
-        style="
-          border-radius: 15px;
-          width: 41%;
-          height: 20vh;
-          border: 2px solid #4e4d4d;
-          padding: 10px;
-          margin-left: -0.9em;
-          text-align: center;
-          justify-content: center;
-          background-color: rgba(248, 146, 109, 0.806);
-        "
-      >
-        <h1>QUERY TEXT</h1>
-        <form action="{{url_for('process_text')}}" method="post">
-          <label for="user_input">Enter some text:</label><br />
-          <input type="text" id="user_input" name="user_input" /><br />
-          <button
-            type="submit"
-            class="inputBtn"
-            value="Submit"
-            style="background-color: rgb(24, 57, 58)"
-          >
-            SUBMIT
-          </button>
-        </form>
-      </div>
-      <div
-        style="
-          border-radius: 15px;
-          width: 41%;
-          height: 20vh;
-          border: 2px solid #4e4d4d;
-          padding: 10px;
-          margin-left: -0.9em;
-          text-align: center;
-          justify-content: center;
-          background-color: rgba(247, 163, 132, 0.806);
-        "
-      >
+      <div class="card" style="background-color: #e0e0e0">
         <h1 class="header">UPLOAD QUERY RESUME</h1>
         <form
           class="upload-form"
-          action=" {{ url_for('queryupload')}}"
+          action="{{ url_for('queryupload')}}"
           method="post"
           enctype="multipart/form-data"
         >
-          <input type="file" id="upload" name="file" />
-          <button type="submit" class="inputBtn" value="Upload">UPLOAD</button>
+          <label class="file-label" for="upload"
+            >Select Query Resume File:</label
+          >
+          <div style="margin-top: 12px">
+            <input type="file" id="upload" name="file" />
+            <button type="submit" class="inputBtn" style="margin-left: -60px;">UPLOAD</button>
+          </div>
+        </form>
+      </div>
+      <div class="card" style="background-color: #e0e0e0">
+        <h1 class="header">QUERY TEXT</h1>
+        <form action="{{url_for('process_text')}}" method="post">
+          <label class="form-label" for="user_input">Enter some text:</label
+          ><br />
+          <div style="margin-top: 12px">
+            <input
+              type="text"
+              id="user_input"
+              name="user_input"
+              style="margin-right: 15px"
+            />
+            <button
+              type="submit"
+              class="inputBtn"
+              style="background-color: rgb(24, 57, 58)"
+            >
+              SUBMIT
+            </button>
+          </div>
         </form>
       </div>
     </div>
-    <form action=" {{ url_for('deleteFiles')}}" method="post" class="delete">
+    <form action="{{ url_for('deleteFiles')}}" method="post" class="delete">
       <br />
-      <h2>Clear Vector Index, Upload Resume and Query Resume</h2>
+      <h3>Clear Vector Index, Upload Resume and Query Resume</h2>
       <br />
-      <button
-        type="submit"
-        class="inputBtn"
-        value="Delete"
-        style="background-color: red; width: 60px"
-      >
-        DELETE
-      </button>
+      <button type="submit" class="delete-btn">DELETE</button>
     </form>
     <br />
 
