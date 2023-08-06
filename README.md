@@ -3,7 +3,7 @@
 ![Resume Filtration App](./docs/website.png)
 
 
-###Output
+## Output
 ![Resume Filtration App Output](./docs/Output.png)
 
 
